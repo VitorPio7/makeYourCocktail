@@ -5,5 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <form action="/enviar" method="post" value="alcoolica">
+      <label for="bebida_alcoolica">
+        <input
+          type="radio"
+          name="bebida"
+          value="alcoolica"
+          id="bebida_alcoolica"
+        />
+        Bebida Alcoólica </label
+      ><br />
+      <label for="bebida_nao_alcoolica">
+        <input
+          type="radio"
+          name="bebida"
+          value="nao_alcoolica"
+          id="bebida_nao_alcoolica"
+        />
+        Bebida não alcoolica </label
+      ><br />
+
+      <input type="button" value="Send" />
+    </form>
+  </body>
 </html>
