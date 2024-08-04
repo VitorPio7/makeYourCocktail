@@ -7,26 +7,17 @@
   </head>
   <body>
     <form action="/enviar" method="post" value="alcoolica">
-      <label for="bebida_alcoolica">
-        <input
-          type="radio"
-          name="bebida"
-          value="alcoolica"
-          id="bebida_alcoolica"
-        />
-        Bebida Alcoólica </label
+      <label for="chose">Escolha uma bebida:</label>
+      <select name="chose" id="chose">
+        <option value="a=Alcoholic">Com alcool</option>
+        <option value="a=Non_Alcoholic">Sem alcool</option>
+      </select>
       ><br />
-      <label for="bebida_nao_alcoolica">
-        <input
-          type="radio"
-          name="bebida"
-          value="nao_alcoolica"
-          id="bebida_nao_alcoolica"
-        />
-        Bebida não alcoolica </label
-      ><br />
-
-      <input type="button" value="Send" />
+      <button type="submit" value="Send">Enviar</button>
     </form>
+    <% if(locals.contents){ %>
+    <h1><%= contents %></h1>
+    <% }%> <% if(locals.image){%> <img src="<%=image %>" alt="drinkImgage" /> <%
+    } %> <% if(locals.contents){%> <%= recep %> <% } %>
   </body>
 </html>
