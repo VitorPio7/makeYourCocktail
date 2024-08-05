@@ -4,25 +4,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>randomCocktail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <form action="/enviar" method="post" value="alcoolica">
-      <label for="chose">Escolha uma bebida aleatória:</label>
-      <select name="chose" id="chose">
-        <option value="a=Alcoholic">Com alcool</option>
-        <option value="a=Non_Alcoholic">Sem alcool</option>
-      </select>
-      ><br />
-      <button type="submit" value="Send">Enviar</button>
-    </form>
-    <% if(locals.contents){ %>
-    <h1><%= contents %></h1>
-    <% }%> <% if(locals.image){%>
-    <img src="<%=image %>" alt="drinkImgage" width="300px" /> <% } %> <%
-    if(locals.contents){%> <%= recep %> <% } %> <% if(locals.error &&
-    locals.message){ %>
-    <h1><%=message %></h1>
-    <% } %>
+    <div class="container1">
+      <form action="/enviar" method="post" value="alcoolica">
+        <label for="chose">Escolha uma bebida aleatória:</label>
+        <select name="chose" id="chose">
+          <option value="a=Alcoholic">Com alcool</option>
+          <option value="a=Non_Alcoholic">Sem alcool</option>
+        </select>
+        <br />
+        <button class="button-87" role="button" type="submit" value="Send">
+          Enviar
+        </button>
+      </form>
+
+      <% if(locals.contents){ %>
+      <h1 class="drink"><%= contents %></h1>
+      <% }%> <% if(locals.image){%>
+      <img src="<%=image %>" alt="drinkImgage" width="300px" /> <% } %>
+      <%if(locals.contents){%>
+      <p class="recep"><%= recep %></p>
+      <% } %> <% if(locals.message){%>
+      <p class="recep"><%= message %></p>
+      <% } %>
+    </div>
   </body>
 </html>

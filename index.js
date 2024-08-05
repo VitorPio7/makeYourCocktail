@@ -25,9 +25,9 @@ app.post("/enviar", async (req, res) => {
             recep: instruction
         })
     } catch (error) {
-        res.send({
+        res.render("index.ejs", {
             error: 'Error',
-            message: error.message
+            message: "Try again ;)"
         })
     }
 })
