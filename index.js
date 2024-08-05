@@ -16,18 +16,19 @@ app.post("/enviar", async (req, res) => {
     var aleatorio = Math.floor(Math.random() * 100);
     try {
         const response = await axios.get('http://www.thecocktaildb.com/api/json/v1/1/filter.php?' + escolha);
-        var drinkChoose = response.data.drinks[aleatorio].strDrink;
-        var drinkImg = response.data.drinks[aleatorio].strDrinkThumb;
-        var idDrink = response.data.drinks[aleatorio].idDrink
-        const response2 = await axios.get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + idDrink);
-        var instruction = response2.data.drinks[0].strInstructionsDE
+        var drinkChoose = response.data.drinks[aleatorio]
+        const response2 = await axios.get('http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=' + drinkChoose.idDrink);
+        var instruction = response2.data.drinks[0].strInstructions
         res.render("index.ejs", {
-            contents: drinkChoose.replace(/'/g, ''),
-            image: drinkImg,
+            contents: drinkChoose.strDrink.replace(/'/g, ''),
+            image: drinkChoose.strDrinkThumb,
             recep: instruction
         })
     } catch (error) {
-        console.error(error);
+        res.send({
+            error: 'Error',
+            message: error.message
+        })
     }
 })
 
